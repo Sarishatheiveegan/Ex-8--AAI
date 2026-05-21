@@ -1,5 +1,5 @@
- <H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+ <H3>Cynthia Mehul</H3>
+<H3>212223240020</H3>
 <H3>EX. NO.8</H3>
 <H3>DATE:</H3>
 <H1 ALIGN =CENTER>Implementation of Speech Recognition</H1>
@@ -22,9 +22,39 @@ Step 11: Perform speech recognition with exceptional handling:<Br>
 •	A generic exception block captures any other unexpected errors.<Br>
 <H3>Program:</H3>
 
-Insert your code her
+```
+import speech_recognition as sr 
+
+recognizer = sr.Recognizer()
+
+duration = 5
+
+try:
+    with sr.Microphone() as source:
+        print("Speak something...")
+
+        audio = recognizer.listen(source, phrase_time_limit=duration)
+
+        print("Recognizing...")
+
+        text = recognizer.recognize_google(audio)
+
+        print("You said:", text)
+
+except sr.UnknownValueError:
+    print("Could not understand the audio")
+
+except sr.RequestError:
+    print("Could not request results from Google Speech Recognition service")
+
+except Exception as e:
+    print("Error:", e)
+```
 
 <H3> Output:</H3>
-Show the results here
+
+<img width="638" height="162" alt="image" src="https://github.com/user-attachments/assets/c81dd107-c500-4a9d-868e-1dedf57ac806" />
 
 <H3> Result:</H3>
+
+Therefore, the conversion of live speech to text is successfully implemented.
